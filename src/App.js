@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import fbase from './util/firebase';
 import Login from './components/Login/Login';
 import Hero from './components/HomePage/homePage';
+import firebase from 'firebase';
 import './App.css';
 
 function App() {
@@ -55,6 +56,11 @@ function App() {
       })
   }
 
+  const handleLoginWithGoogle = () => {
+    clearErrors();
+    fbase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider)
+  }
+
   const handleLogout = () => {
     fbase.auth().signOut();
   }
@@ -86,6 +92,7 @@ function App() {
           setPassword={setPassword}
           handleLogin={handleLogin}
           handleSignUp={handleSignUp}
+          handleLoginWithGoogle={handleLoginWithGoogle}
           hasAccount={hasAccount}
           setHasAccount={setHasAccount}
           emailError={emailError}

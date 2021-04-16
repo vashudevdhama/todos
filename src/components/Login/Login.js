@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Login({email, setEmail, password, setPassword, handleLogin, handleSignUp, hasAccount, setHasAccount, emailError, passwordError, clearInputs, clearErrors}) {
+export default function Login({email, setEmail, password, setPassword, handleLogin, handleSignUp, handleLoginWithGoogle, hasAccount, setHasAccount, emailError, passwordError, clearInputs, clearErrors}) {
     return (
         <section>
             <div>
@@ -23,6 +23,7 @@ export default function Login({email, setEmail, password, setPassword, handleLog
                             <p>Already have an account? <span onClick={()=>{clearInputs(); clearErrors(); setHasAccount(!hasAccount)}}> Sign in</span></p>
                         </>
                     )}
+                    <button onClick={handleLoginWithGoogle}>Sign in with Google</button>
                 </div>
 
             </div>
